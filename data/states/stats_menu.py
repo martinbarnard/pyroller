@@ -1,6 +1,7 @@
 import pygame as pg
 from .. import tools, prepare
 from ..components.labels import Label, Button, PayloadButton
+import os, json
 
 class StatsMenu(tools._State):
     """This state allows the player to choose which game's stats they
@@ -31,8 +32,6 @@ class StatsMenu(tools._State):
                                                 b_width, b_height, rebuy_label)
 
     def startup(self, current_time, persistent):
-        import os
-        import json
         self.start_time = current_time
         self.persist = persistent
         self.player = self.persist["casino_player"]
@@ -43,7 +42,6 @@ class StatsMenu(tools._State):
             self.stats = stats
 
     def rebuy(self):
-        import os, json
         self.player.stats["cash"] += 1000
         self.player.stats["rebuys"] +=1
         with open(os.path.join("resources", "save_game.json"), "w") as f:
