@@ -30,7 +30,7 @@ class Blackjack(tools._State):
         topright = (self.screen_rect.right - 10, self.screen_rect.top + 10)
         self.music_icon_rect = self.music_icon.get_rect(topright=topright)
         self.mute_icon = prepare.GFX["mute"]
-        self.play_music = False
+        self.play_music = True
         self.game_started = False
 
         b_width = 360
